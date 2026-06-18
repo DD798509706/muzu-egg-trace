@@ -1,0 +1,118 @@
+.pageContainer {
+  min-height: 100%;
+  background: linear-gradient(180deg, #af0e14 0%, #8b0a0f 40%, #6d080c 100%);
+  padding-bottom: 24px;
+}
+
+/* 顶部标题区域 */
+.headerSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 16px 24px;
+}
+
+.titleButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 44px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #ffd700 0%, #ffec8b 30%, #ffd700 60%, #daa520 100%);
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 0 12px rgba(255, 215, 0, 0.3);
+  color: #8b0000;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  border: none;
+  cursor: pointer;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* 查询卡片 */
+.queryCard {
+  margin: 0 16px;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Picker/DatePicker 触发器 */
+.pickerTrigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 44px;
+  padding: 0 14px;
+  background: #f5f5f5;
+  border-radius: 8px;
+  border: 1px solid #e8e8e8;
+  font-size: 14px;
+  color: #999;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.pickerTrigger:hover {
+  border-color: #af0e14;
+}
+
+.pickerTriggerActive {
+  color: #333;
+}
+
+.pickerTriggerArrow {
+  color: #999;
+  font-size: 14px;
+  flex-shrink: 0;
+  margin-left: 8px;
+}
+
+/* 选项行 */
+.pickerRow {
+  margin-bottom: 12px;
+}
+
+/* 备注小字 */
+.remarkText {
+  color: #999;
+  font-size: 12px;
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+/* 查询按钮 */
+.queryButton {
+  width: 100%;
+  height: 48px;
+  margin-top: 16px;
+  border-radius: 24px;
+  background: #af0e14;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s;
+  box-shadow: 0 2px 8px rgba(175, 14, 20, 0.4);
+}
+
+.queryButton:hover {
+  opacity: 0.9;
+}
+
+.queryButton:active {
+  opacity: 0.8;
+}

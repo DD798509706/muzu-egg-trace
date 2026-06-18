@@ -1,0 +1,181 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+
+.content {
+  width: 100%;
+  max-width: 340px;
+  background: linear-gradient(180deg, #af0e14 0%, #c62828 40%, #b71c1c 100%);
+  border-radius: 16px;
+  padding: 32px 20px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Title Badge */
+.titleBadge {
+  width: 160px;
+  height: 36px;
+  border-radius: 18px;
+  background: linear-gradient(to bottom, #ff6b35, #e53935);
+  margin: 0 auto 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+}
+
+.titleBadgeText {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Subtitle */
+.subtitle {
+  color: #fff;
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+/* Trace Steps */
+.traceSteps {
+  margin-bottom: 24px;
+}
+
+.stepItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+}
+
+.stepItem:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.stepIcon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.stepContent {
+  flex: 1;
+}
+
+.stepHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 4px;
+}
+
+.stepTitle {
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.stepDate {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 13px;
+}
+
+.stepPerson {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+}
+
+/* Trust Badge */
+.trustBadge {
+  width: 160px;
+  height: 36px;
+  border-radius: 18px;
+  background: linear-gradient(to bottom, #ff6b35, #e53935);
+  margin: 0 auto 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+}
+
+.trustBadgeText {
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.trustSlogan {
+  color: #fff;
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Blockchain Address */
+.blockchainSection {
+  margin-bottom: 8px;
+}
+
+.blockchainLabel {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 11px;
+  margin-bottom: 4px;
+}
+
+.blockchainAddress {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 10px;
+  font-family: 'Courier New', Courier, monospace;
+  word-break: break-all;
+  line-height: 1.6;
+}
+
+/* Close Button */
+.closeBtn {
+  margin-top: 16px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+
+.closeIcon {
+  width: 20px;
+  height: 20px;
+  color: #333;
+}

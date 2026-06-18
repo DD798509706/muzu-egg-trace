@@ -1,0 +1,14 @@
+.tabBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  border-top: 1px solid #eee;
+  background-color: #fff;
+}
+
+.tabBarInner {
+  max-width: 750px;
+  margin: 0 auto;
+}
