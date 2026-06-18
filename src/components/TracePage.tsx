@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Toast } from 'antd-mobile'
 import TraceModal from './TraceModal'
 import styles from './TracePage.module.css'
 
