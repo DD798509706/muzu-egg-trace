@@ -245,9 +245,11 @@
 }
 
 .blockchainLabel {
-  white-space: nowrap;
   opacity: 0.9;
-  min-width: 120px;
+  width: 120px;
+  flex-shrink: 0;
+  line-height: 1.5;
+  word-break: break-all;
 }
 
 .blockchainValue {
