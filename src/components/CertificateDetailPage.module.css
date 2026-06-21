@@ -115,6 +115,7 @@
 .infoRow {
   display: flex;
   align-items: baseline;
+  gap: 12px;
   margin-bottom: 6px;
   font-size: 14px;
   line-height: 1.6;
