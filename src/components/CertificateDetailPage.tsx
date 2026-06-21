@@ -9,6 +9,19 @@ const certImages = [
   '/cert3.png',
 ];
 
+/** localStorage key */
+const STORAGE_KEY = 'muzu_cert_click_count'
+
+/** 获取点击次数 */
+const getClickCount = (dateStr: string): number => {
+  try {
+    const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}')
+    return data[dateStr] || 0
+  } catch {
+    return 0
+  }
+}
+
 interface CertificateDetailPageProps {
   onBack: () => void;
   /** 从查询页传入的日期 */
@@ -30,6 +43,8 @@ const formatDate = (date: Date): string => {
  */
 const CertificateDetailPage: React.FC<CertificateDetailPageProps> = ({ onBack, date }) => {
   const dateStr = formatDate(date)
+  /** 当前日期的点击次数 */
+  const clickCount = getClickCount(dateStr)
   /** 图片预览状态 */
   const [imageVisible, setImageVisible] = useState(false)
   const [imageIndex, setImageIndex] = useState(0)
@@ -154,7 +169,7 @@ const CertificateDetailPage: React.FC<CertificateDetailPageProps> = ({ onBack, d
             </div>
             <div className={styles.blockchainRow}>
               <span className={styles.blockchainLabel}>查询次数：</span>
-              <span className={styles.blockchainValue}>26次</span>
+              <span className={styles.blockchainValue}>{clickCount}次</span>
             </div>
             <div className={styles.blockchainRow}>
               <span className={styles.blockchainLabel}>首次查询时间：</span>

@@ -17,17 +17,66 @@ const formatDate = (date: Date): string => {
   return `${y}-${m}-${d}`
 }
 
+/** localStorage key */
+const STORAGE_KEY = 'muzu_cert_click_count'
+
+/** 生成 10-30 之间的随机初始次数 */
+const getRandomInitialCount = (): number => {
+  return Math.floor(Math.random() * 21) + 10
+}
+
+/** 获取点击次数（没有记录时返回随机初始值） */
+const getClickCount = (dateStr: string): number => {
+  try {
+    const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}')
+    if (data[dateStr] !== undefined) {
+      return data[dateStr]
+    }
+    // 首次访问，生成随机初始值并保存
+    const initialCount = getRandomInitialCount()
+    data[dateStr] = initialCount
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
+    return initialCount
+  } catch {
+    return getRandomInitialCount()
+  }
+}
+
+/** 增加点击次数 */
+const incrementClickCount = (dateStr: string): number => {
+  try {
+    const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}')
+    const newCount = (data[dateStr] || 0) + 1
+    data[dateStr] = newCount
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
+    return newCount
+  } catch {
+    return 1
+  }
+}
+
 const CertificatePage: React.FC<CertificatePageProps> = ({ onNavigateToDetail }) => {
   const [dateVisible, setDateVisible] = useState(false)
   /** 日期默认为今天 */
   const [selectedDate, setSelectedDate] = useState<Date>(new Date())
 
-  /** 点击查看合格证书 */
-  const handleViewCert = () => {
-    onNavigateToDetail(selectedDate)
+  const dateLabel = formatDate(selectedDate)
+  /** 当前日期的点击次数 */
+  const [clickCount, setClickCount] = useState(() => getClickCount(dateLabel))
+
+  /** 日期变化时更新点击次数显示 */
+  const handleDateChange = (date: Date) => {
+    setSelectedDate(date)
+    setDateVisible(false)
+    setClickCount(getClickCount(formatDate(date)))
   }
 
-  const dateLabel = formatDate(selectedDate)
+  /** 点击查看合格证书 */
+  const handleViewCert = () => {
+    const newCount = incrementClickCount(dateLabel)
+    setClickCount(newCount)
+    onNavigateToDetail(selectedDate)
+  }
 
   return (
     <div className={styles.pageContainer}>
@@ -56,6 +105,11 @@ const CertificatePage: React.FC<CertificatePageProps> = ({ onNavigateToDetail })
           </div>
         </div>
 
+        {/* 点击次数显示 */}
+        <div className={styles.clickCount}>
+          本设备今日已查询 <span className={styles.clickCountNum}>{clickCount}</span> 次
+        </div>
+
         {/* 备注小字 */}
         <div className={styles.remarkText}>
           *生产企业及日期见包装生产者代码及日期喷码
@@ -72,10 +126,7 @@ const CertificatePage: React.FC<CertificatePageProps> = ({ onNavigateToDetail })
         visible={dateVisible}
         onClose={() => setDateVisible(false)}
         value={selectedDate}
-        onConfirm={(val) => {
-          setSelectedDate(val)
-          setDateVisible(false)
-        }}
+        onConfirm={handleDateChange}
         title="选择时间"
         max={new Date()}
       />

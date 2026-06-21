@@ -131,3 +131,17 @@
   opacity: 0.7;
   background: #eee;
 }
+
+/* 点击次数显示 */
+.clickCount {
+  text-align: center;
+  font-size: 13px;
+  color: #666;
+  margin-top: 8px;
+}
+
+.clickCountNum {
+  color: #fbca01;
+  font-weight: bold;
+  font-size: 15px;
+}
