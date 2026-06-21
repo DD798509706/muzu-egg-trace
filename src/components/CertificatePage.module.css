@@ -1,6 +1,6 @@
 .pageContainer {
   min-height: 100%;
-  background: linear-gradient(180deg, #fbca01 0%, #1f1513 40%, #1f1513 100%);
+  background: #1f1513;
   padding-bottom: 24px;
 }
 
@@ -19,7 +19,7 @@
   width: 200px;
   height: 44px;
   border-radius: 22px;
-  background: linear-gradient(135deg, #ffd700 0%, #ffec8b 30%, #ffd700 60%, #daa520 100%);
+  background: #fbca01;
   box-shadow:
     0 2px 8px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.4),
