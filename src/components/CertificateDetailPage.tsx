@@ -3,13 +3,26 @@ import styles from './CertificateDetailPage.module.css';
 
 interface CertificateDetailPageProps {
   onBack: () => void;
+  /** 从查询页传入的日期 */
+  date: Date;
+}
+
+/** 格式化日期为 YYYY-MM-DD */
+const formatDate = (date: Date): string => {
+  const y = date.getFullYear()
+  const m = String(date.getMonth() + 1).padStart(2, '0')
+  const d = String(date.getDate()).padStart(2, '0')
+  return `${y}-${m}-${d}`
 }
 
 /**
  * 合格证书详情页
  * 复刻参考页面样式：绿色主题、卡片式布局
+ * 日期字段动态填充自查询页选择
  */
-const CertificateDetailPage: React.FC<CertificateDetailPageProps> = ({ onBack }) => {
+const CertificateDetailPage: React.FC<CertificateDetailPageProps> = ({ onBack, date }) => {
+  const dateStr = formatDate(date)
+
   return (
     <div className={styles.page}>
       {/* 顶部标题栏 */}
@@ -70,7 +83,8 @@ const CertificateDetailPage: React.FC<CertificateDetailPageProps> = ({ onBack })
             </div>
             <div className={styles.infoRow}>
               <span className={styles.infoLabel}>开具时间：</span>
-              <span className={styles.infoValue}>2026-05-17</span>
+              {/* 动态日期 */}
+              <span className={styles.infoValue}>{dateStr}</span>
             </div>
           </div>
         </div>
@@ -127,7 +141,8 @@ const CertificateDetailPage: React.FC<CertificateDetailPageProps> = ({ onBack })
             </div>
             <div className={styles.blockchainRow}>
               <span className={styles.blockchainLabel}>首次查询时间：</span>
-              <span className={styles.blockchainValue}>2026-05-17</span>
+              {/* 动态日期 */}
+              <span className={styles.blockchainValue}>{dateStr}</span>
             </div>
           </div>
         </div>
@@ -145,7 +160,8 @@ const CertificateDetailPage: React.FC<CertificateDetailPageProps> = ({ onBack })
           </div>
           <div className={styles.infoRow}>
             <span className={styles.infoLabel}>生产日期：</span>
-            <span className={styles.infoValue}>2026-05-17</span>
+            {/* 动态日期 */}
+            <span className={styles.infoValue}>{dateStr}</span>
           </div>
           <div className={styles.infoRow}>
             <span className={styles.infoLabel}>生产地址：</span>

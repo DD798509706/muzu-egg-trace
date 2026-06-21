@@ -15,16 +15,18 @@ export default function App() {
   const [activeTab, setActiveTab] = useState('cert');
   /** 是否显示证书详情页 */
   const [showCertDetail, setShowCertDetail] = useState(false);
+  /** 从查询页传递到详情页的日期 */
+  const [certDate, setCertDate] = useState<Date>(new Date());
 
   /** 处理 Tab 切换 */
   const handleTabChange = (key: string) => {
     setActiveTab(key);
-    // 切换 Tab 时隐藏详情页
     setShowCertDetail(false);
   };
 
-  /** 跳转到证书详情页 */
-  const handleNavigateToDetail = () => {
+  /** 跳转到证书详情页，携带日期 */
+  const handleNavigateToDetail = (date: Date) => {
+    setCertDate(date);
     setShowCertDetail(true);
   };
 
@@ -35,9 +37,8 @@ export default function App() {
 
   /** 根据当前状态渲染对应页面 */
   const renderContent = () => {
-    // 证书详情页优先级最高，覆盖 Tab 切换
     if (showCertDetail) {
-      return <CertificateDetailPage onBack={handleBackToCert} />;
+      return <CertificateDetailPage onBack={handleBackToCert} date={certDate} />;
     }
 
     switch (activeTab) {
