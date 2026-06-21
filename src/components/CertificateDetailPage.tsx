@@ -99,9 +99,9 @@ const CertificateDetailPage: React.FC<CertificateDetailPageProps> = ({ onBack, d
           <div className={styles.proofRow}>
             <span className={styles.proofLabel}>质量安全控制符合要求证明：</span>
             <div className={styles.proofImages}>
-              <div className={styles.proofImg}>证书1</div>
-              <div className={styles.proofImg}>证书2</div>
-              <div className={styles.proofImg}>证书3</div>
+              <img className={styles.proofImg} src="/cert1.png" alt="证书1" />
+              <img className={styles.proofImg} src="/cert2.png" alt="证书2" />
+              <img className={styles.proofImg} src="/cert3.png" alt="证书3" />
             </div>
           </div>
         </div>
