@@ -183,9 +183,10 @@
 .proofLabel {
   font-size: 13px;
   color: #333;
-  white-space: nowrap;
-  min-width: 60px;
   flex-shrink: 0;
+  width: 60px;
+  line-height: 1.5;
+  word-break: break-all;
 }
 
 .proofImages {
@@ -196,8 +197,8 @@
 }
 
 .proofImg {
-  width: 100px;
-  height: 130px;
+  width: 80px;
+  height: 100px;
   object-fit: cover;
   border: 1px solid #c8e6c9;
   border-radius: 4px;
