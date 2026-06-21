@@ -105,11 +105,6 @@ const CertificatePage: React.FC<CertificatePageProps> = ({ onNavigateToDetail })
           </div>
         </div>
 
-        {/* 点击次数显示 */}
-        <div className={styles.clickCount}>
-          本设备今日已查询 <span className={styles.clickCountNum}>{clickCount}</span> 次
-        </div>
-
         {/* 备注小字 */}
         <div className={styles.remarkText}>
           *生产企业及日期见包装生产者代码及日期喷码
