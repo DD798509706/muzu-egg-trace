@@ -1,6 +1,13 @@
-import React from 'react';
-import { Image } from 'antd-mobile';
+import React, { useState } from 'react';
+import { ImageViewer } from 'antd-mobile';
 import styles from './CertificateDetailPage.module.css';
+
+/** 证书图片列表 */
+const certImages = [
+  '/cert1.png',
+  '/cert2.png',
+  '/cert3.png',
+];
 
 interface CertificateDetailPageProps {
   onBack: () => void;
@@ -23,6 +30,9 @@ const formatDate = (date: Date): string => {
  */
 const CertificateDetailPage: React.FC<CertificateDetailPageProps> = ({ onBack, date }) => {
   const dateStr = formatDate(date)
+  /** 图片预览状态 */
+  const [imageVisible, setImageVisible] = useState(false)
+  const [imageIndex, setImageIndex] = useState(0)
 
   return (
     <div className={styles.page}>
@@ -100,9 +110,15 @@ const CertificateDetailPage: React.FC<CertificateDetailPageProps> = ({ onBack, d
           <div className={styles.proofRow}>
             <span className={styles.proofLabel}>质量安全控制符合要求证明：</span>
             <div className={styles.proofImages}>
-              <Image src="/cert1.png" width={80} height={100} fit="cover" style={{ borderRadius: 4, border: '1px solid #c8e6c9' }} />
-              <Image src="/cert2.png" width={80} height={100} fit="cover" style={{ borderRadius: 4, border: '1px solid #c8e6c9' }} />
-              <Image src="/cert3.png" width={80} height={100} fit="cover" style={{ borderRadius: 4, border: '1px solid #c8e6c9' }} />
+              {certImages.map((src, index) => (
+                <img
+                  key={index}
+                  className={styles.proofImg}
+                  src={src}
+                  alt={`证书${index + 1}`}
+                  onClick={() => { setImageIndex(index); setImageVisible(true) }}
+                />
+              ))}
             </div>
           </div>
         </div>
@@ -191,6 +207,13 @@ const CertificateDetailPage: React.FC<CertificateDetailPageProps> = ({ onBack, d
           </div>
         </div>
       </div>
+
+      {/* 图片预览查看器 */}
+      <ImageViewer
+        image={certImages[imageIndex]}
+        visible={imageVisible}
+        onClose={() => setImageVisible(false)}
+      />
     </div>
   );
 };
