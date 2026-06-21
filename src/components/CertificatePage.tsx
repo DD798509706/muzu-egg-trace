@@ -28,7 +28,8 @@ const getRandomInitialCount = (): number => {
 /** 获取点击次数（没有记录时返回随机初始值） */
 const getClickCount = (dateStr: string): number => {
   try {
-    const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}')
+    const raw = localStorage.getItem(STORAGE_KEY)
+    const data = raw ? JSON.parse(raw) : {}
     if (data[dateStr] !== undefined) {
       return data[dateStr]
     }
@@ -45,12 +46,16 @@ const getClickCount = (dateStr: string): number => {
 /** 增加点击次数 */
 const incrementClickCount = (dateStr: string): number => {
   try {
-    const data = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}')
-    const newCount = (data[dateStr] || 0) + 1
+    const raw = localStorage.getItem(STORAGE_KEY)
+    const data = raw ? JSON.parse(raw) : {}
+    const current = data[dateStr] || 0
+    const newCount = current + 1
     data[dateStr] = newCount
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data))
+    console.log('点击次数更新:', dateStr, newCount)
     return newCount
-  } catch {
+  } catch (e) {
+    console.error('更新点击次数失败:', e)
     return 1
   }
 }
@@ -61,21 +66,18 @@ const CertificatePage: React.FC<CertificatePageProps> = ({ onNavigateToDetail })
   const [selectedDate, setSelectedDate] = useState<Date>(new Date())
 
   const dateLabel = formatDate(selectedDate)
-  /** 当前日期的点击次数 */
-  const [clickCount, setClickCount] = useState(() => getClickCount(dateLabel))
-
-  /** 日期变化时更新点击次数显示 */
-  const handleDateChange = (date: Date) => {
-    setSelectedDate(date)
-    setDateVisible(false)
-    setClickCount(getClickCount(formatDate(date)))
-  }
 
   /** 点击查看合格证书 */
   const handleViewCert = () => {
     const newCount = incrementClickCount(dateLabel)
-    setClickCount(newCount)
+    console.log('点击查看证书,新次数:', newCount)
     onNavigateToDetail(selectedDate)
+  }
+
+  /** 日期变化时更新 */
+  const handleDateChange = (date: Date) => {
+    setSelectedDate(date)
+    setDateVisible(false)
   }
 
   return (
