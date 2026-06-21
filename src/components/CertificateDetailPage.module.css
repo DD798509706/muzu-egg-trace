@@ -241,6 +241,7 @@
 .blockchainRow {
   display: flex;
   align-items: baseline;
+  gap: 12px;
   margin-bottom: 8px;
   font-size: 13px;
 }
