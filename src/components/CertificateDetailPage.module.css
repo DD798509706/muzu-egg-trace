@@ -124,8 +124,10 @@
 .infoLabel {
   font-weight: bold;
   color: #333;
-  white-space: nowrap;
-  min-width: 80px;
+  width: 80px;
+  flex-shrink: 0;
+  line-height: 1.5;
+  word-break: break-all;
 }
 
 .infoValue {
