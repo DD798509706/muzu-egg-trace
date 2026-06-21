@@ -1,11 +1,9 @@
 .container {
-  padding: 20px 16px;
+  width: 100%;
+  background: #fff;
 }
 
-.title {
-  font-size: 20px;
-  font-weight: 600;
-  color: #333;
-  text-align: center;
-  margin-top: 40px;
+.aboutImage {
+  width: 100%;
+  display: block;
 }
