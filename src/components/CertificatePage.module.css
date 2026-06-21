@@ -116,3 +116,11 @@
 .queryButton:active {
   opacity: 0.8;
 }
+
+/* 查询按钮禁用态 */
+.queryButtonDisabled {
+  background: #ccc !important;
+  color: #fff !important;
+  cursor: not-allowed;
+  box-shadow: none !important;
+}

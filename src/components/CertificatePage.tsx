@@ -1,7 +1,10 @@
 import React, { useState } from 'react'
-import { Picker, DatePicker } from 'antd-mobile'
+import { Picker, DatePicker, Toast } from 'antd-mobile'
 import styles from './CertificatePage.module.css'
-import CertificateImageModal from './CertificateImageModal'
+
+interface CertificatePageProps {
+  onNavigateToDetail: () => void;
+}
 
 const companyOptions = [
   [
@@ -11,15 +14,30 @@ const companyOptions = [
   ],
 ]
 
-const CertificatePage: React.FC = () => {
+const CertificatePage: React.FC<CertificatePageProps> = ({ onNavigateToDetail }) => {
   const [companyVisible, setCompanyVisible] = useState(false)
   const [dateVisible, setDateVisible] = useState(false)
-  const [selectedCompany, setSelectedCompany] = useState<string[]>(['bj'])
-  const [selectedDate, setSelectedDate] = useState<Date>(new Date())
-  const [showModal, setShowModal] = useState(false)
+  const [selectedCompany, setSelectedCompany] = useState<string[]>([])
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null)
 
+  /** 表单验证：检查企业和日期是否已选择 */
+  const validateForm = (): boolean => {
+    if (selectedCompany.length === 0) {
+      Toast.show({ content: '请选择企业名称', position: 'center' })
+      return false
+    }
+    if (!selectedDate) {
+      Toast.show({ content: '请选择生产日期', position: 'center' })
+      return false
+    }
+    return true
+  }
+
+  /** 点击查看合格证书 */
   const handleViewCert = () => {
-    setShowModal(true)
+    if (validateForm()) {
+      onNavigateToDetail()
+    }
   }
 
   const companyLabel = selectedCompany.length
@@ -72,7 +90,10 @@ const CertificatePage: React.FC = () => {
         </div>
 
         {/* 查询按钮 */}
-        <button className={styles.queryButton} onClick={handleViewCert}>
+        <button
+          className={`${styles.queryButton} ${(!companyLabel || !dateLabel) ? styles.queryButtonDisabled : ''}`}
+          onClick={handleViewCert}
+        >
           查看合格证书
         </button>
       </div>
@@ -102,11 +123,6 @@ const CertificatePage: React.FC = () => {
         title="选择时间"
         max={new Date()}
       />
-
-      {/* 合格证书全屏页面 */}
-      {showModal && (
-        <CertificateImageModal onClose={() => setShowModal(false)} />
-      )}
     </div>
   )
 }

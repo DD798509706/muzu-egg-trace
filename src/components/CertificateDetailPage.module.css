@@ -1,0 +1,258 @@
+.page {
+  min-height: 100%;
+  background: #f0f5f0;
+}
+
+/* 顶部标题栏 */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #4caf50;
+  color: #fff;
+}
+
+.backBtn {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.headerTitle {
+  font-size: 17px;
+  font-weight: 600;
+  text-align: center;
+  flex: 1;
+}
+
+.headerPlaceholder {
+  width: 36px;
+}
+
+/* 主内容区 */
+.content {
+  padding: 12px;
+}
+
+/* 合格证主卡片 */
+.certCard {
+  background: #e8f5e9;
+  border: 2px solid #4caf50;
+  border-radius: 8px;
+  padding: 2px;
+  margin-bottom: 12px;
+}
+
+.certCardInner {
+  background: #f1f8e9;
+  border: 1px dashed #81c784;
+  border-radius: 6px;
+  padding: 16px;
+}
+
+.certTitle {
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: #2e7d32;
+  letter-spacing: 4px;
+  margin-bottom: 4px;
+}
+
+.certNo {
+  text-align: center;
+  font-size: 13px;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.promiseBox {
+  background: #4caf50;
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.promiseLabel {
+  font-size: 13px;
+}
+
+.promiseItem {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.8;
+  padding-left: 8px;
+}
+
+.basisRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 12px 0;
+  font-size: 13px;
+}
+
+.basisLabel {
+  font-weight: bold;
+  color: #333;
+}
+
+.checkboxChecked {
+  color: #2e7d32;
+}
+
+.checkboxUnchecked {
+  color: #999;
+}
+
+.infoRow {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 6px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.infoLabel {
+  font-weight: bold;
+  color: #333;
+  white-space: nowrap;
+  min-width: 80px;
+}
+
+.infoValue {
+  color: #333;
+  flex: 1;
+}
+
+/* 通用卡片 */
+.sectionCard {
+  background: #fff;
+  border: 1px solid #4caf50;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.sectionIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #4caf50;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background: #c8e6c9;
+  margin: 8px 0 12px;
+}
+
+/* 承诺依据 */
+.proofRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.proofLabel {
+  font-size: 14px;
+  color: #333;
+  white-space: nowrap;
+  min-width: 80px;
+}
+
+.proofImages {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+}
+
+.proofImg {
+  width: 80px;
+  height: 100px;
+  background: #e8f5e9;
+  border: 1px solid #c8e6c9;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: #999;
+}
+
+/* 区块链卡片 */
+.blockchainCard {
+  background: #4caf50;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  color: #fff;
+}
+
+.blockchainHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.blockchainIcon {
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+.blockchainTitle {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  flex: 1;
+}
+
+.blockchainContent {
+  padding: 0 8px;
+}
+
+.blockchainRow {
+  display: flex;
+  align-items: baseline;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.blockchainLabel {
+  white-space: nowrap;
+  opacity: 0.9;
+  min-width: 120px;
+}
+
+.blockchainValue {
+  flex: 1;
+  word-break: break-all;
+  opacity: 0.95;
+}
