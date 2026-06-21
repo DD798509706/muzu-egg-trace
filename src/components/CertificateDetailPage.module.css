@@ -177,25 +177,27 @@
 .proofRow {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
+  gap: 8px;
 }
 
 .proofLabel {
-  font-size: 14px;
+  font-size: 13px;
   color: #333;
   white-space: nowrap;
-  min-width: 80px;
+  min-width: 60px;
+  flex-shrink: 0;
 }
 
 .proofImages {
   display: flex;
   gap: 8px;
   flex: 1;
+  justify-content: flex-end;
 }
 
 .proofImg {
-  width: 80px;
-  height: 100px;
+  width: 100px;
+  height: 130px;
   object-fit: cover;
   border: 1px solid #c8e6c9;
   border-radius: 4px;
