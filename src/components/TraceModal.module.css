@@ -16,7 +16,7 @@
 .content {
   width: 100%;
   max-width: 340px;
-  background: linear-gradient(180deg, #af0e14 0%, #c62828 40%, #b71c1c 100%);
+  background: linear-gradient(180deg, #fbca01 0%, #1f1513 40%, #1f1513 100%);
   border-radius: 16px;
   padding: 32px 20px 24px;
   position: relative;
@@ -28,7 +28,7 @@
   width: 160px;
   height: 36px;
   border-radius: 18px;
-  background: linear-gradient(to bottom, #ff6b35, #e53935);
+  background: linear-gradient(to bottom, #fbca01, #fbca01);
   margin: 0 auto 8px;
   display: flex;
   align-items: center;
@@ -117,7 +117,7 @@
   width: 160px;
   height: 36px;
   border-radius: 18px;
-  background: linear-gradient(to bottom, #ff6b35, #e53935);
+  background: linear-gradient(to bottom, #fbca01, #fbca01);
   margin: 0 auto 8px;
   display: flex;
   align-items: center;

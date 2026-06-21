@@ -87,9 +87,9 @@
 }
 
 .checkboxChecked {
-  background: #af0e14;
+  background: #fbca01;
   color: #fff;
-  border: 1px solid #af0e14;
+  border: 1px solid #fbca01;
 }
 
 .checkboxUnchecked {
@@ -139,7 +139,7 @@
   bottom: 0;
   width: 80px;
   height: 80px;
-  border: 2.5px solid #af0e14;
+  border: 2.5px solid #fbca01;
   border-radius: 50%;
   display: flex;
   flex-direction: column;
@@ -151,20 +151,20 @@
 
 .stampTop {
   font-size: 10px;
-  color: #af0e14;
+  color: #fbca01;
   font-weight: bold;
   letter-spacing: 1px;
 }
 
 .stampStar {
   font-size: 12px;
-  color: #af0e14;
+  color: #fbca01;
   margin: 1px 0;
 }
 
 .stampBottom {
   font-size: 10px;
-  color: #af0e14;
+  color: #fbca01;
   font-weight: bold;
   letter-spacing: 1px;
 }

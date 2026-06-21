@@ -49,7 +49,7 @@ export default function BottomTab({ activeKey, onChange }: BottomTabProps) {
           activeKey={activeKey}
           onChange={onChange}
           style={{
-            '--active-color': '#af0e14',
+            '--active-color': '#fbca01',
             '--inactive-color': '#999',
           } as React.CSSProperties}
         >
